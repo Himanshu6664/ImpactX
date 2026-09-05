@@ -22,3 +22,6 @@ CREATE TABLE data_requests (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+-- Sagar: added index to speed up looking up a user's requests
+CREATE INDEX idx_data_requests_user_id ON data_requests(user_id);
