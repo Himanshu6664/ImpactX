@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 session_start();
 require 'db.php';
 
+header('Content-Type: application/json');
+
 // make sure someone is actually logged in before giving out data
 if (!isset($_SESSION['user_id'])) {
     http_response_code(403);
@@ -23,7 +25,5 @@ $stmt = $pdo->prepare("SELECT username, email, created_at FROM users WHERE user_
 $stmt->execute([$user_id]);
 $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// send it back as json, same as we did in the django version
-header('Content-Type: application/json');
 echo json_encode($userData);
 ?>
