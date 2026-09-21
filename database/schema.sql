@@ -37,4 +37,8 @@ CREATE TABLE cookie_consent (
         REFERENCES users(user_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE
+<<<<<<< HEAD
 );
+=======
+);
+>>>>>>> main
